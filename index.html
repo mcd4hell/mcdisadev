@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mcd — Developer Workspace</title>
+    <!-- Fonts: Montserrat for main layout & JetBrains Mono for code elements -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Code Protection Shield - Load First! -->
+    <script src="js/protect.js"></script>
+</head>
+<body class="workspace-layout">
+    <!-- Grid Background -->
+    <div class="grid-bg"></div>
+
+    <!-- Minimal Green Glow Orbs -->
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <!-- Top Window Menu Bar (IDE Style Header) -->
+    <header class="workspace-header">
+        <div class="header-left">
+            <span class="logo">
+                <span class="logo-bracket">&lt;</span>Mcd<span class="logo-bracket">/&gt;</span>
+            </span>
+            <div class="menu-items">
+                <span data-i18n="menuFile">File</span>
+                <span data-i18n="menuEdit">Edit</span>
+                <span data-i18n="menuSelection">Selection</span>
+                <span data-i18n="menuView">View</span>
+                <span data-i18n="menuGo">Go</span>
+                <span data-i18n="menuRun">Run</span>
+                <span data-i18n="menuTerminal">Terminal</span>
+                <span data-i18n="menuHelp">Help</span>
+            </div>
+        </div>
+        <div class="header-center">
+            <span class="workspace-title"><i class="fas fa-folder-open icon-dim"></i> <span data-i18n="headerTitle">mcd-workspace — dev_portfolio</span></span>
+        </div>
+        <div class="header-right">
+            <div class="window-controls">
+                <span class="control-btn minimize"></span>
+                <span class="control-btn maximize"></span>
+                <span class="control-btn close"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Workspace Container -->
+    <div class="workspace-main">
+        <!-- Sidebar (Activity Bar) -->
+        <aside class="activity-bar">
+            <div class="activity-top">
+                <a href="#home" class="activity-item active" title="Explorer (Home)" data-tab="home.md">
+                    <i class="far fa-copy"></i>
+                </a>
+                <a href="#about" class="activity-item" title="Biography (About)" data-tab="about.json">
+                    <i class="far fa-user"></i>
+                </a>
+                <a href="#projects" class="activity-item" title="Repositories (Projects)" data-tab="projects.json">
+                    <i class="fas fa-project-diagram"></i>
+                </a>
+                <a href="#contact" class="activity-item" title="Contact (yaml)" data-tab="contact.yaml">
+                    <i class="far fa-envelope"></i>
+                </a>
+            </div>
+            <div class="activity-bottom">
+                <a href="https://github.com" target="_blank" class="activity-item" title="Source Control">
+                    <i class="fas fa-code-branch"></i>
+                </a>
+                <a href="#settings" class="activity-item" title="Settings">
+                    <i class="fas fa-cog"></i>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Sidebar Panel (Explorer Pane) -->
+        <aside class="explorer-sidebar" id="explorerSidebar">
+            <div class="explorer-header">
+                <span data-i18n="explorerTitle">EXPLORER: MCD-WORKSPACE</span>
+                <button class="explorer-toggle" id="explorerToggleBtn"><i class="fas fa-angle-left"></i></button>
+            </div>
+            <div class="explorer-content">
+                <div class="folder-group open">
+                    <div class="folder-title">
+                        <i class="fas fa-chevron-down folder-arrow"></i>
+                        <i class="fas fa-folder-open folder-icon"></i>
+                        <span>portfolio</span>
+                    </div>
+                    <div class="folder-items">
+                        <div class="folder-group open">
+                            <div class="folder-title">
+                                <i class="fas fa-chevron-down folder-arrow"></i>
+                                <i class="fas fa-folder-open folder-icon-sub"></i>
+                                <span>src</span>
+                            </div>
+                            <div class="folder-items">
+                                <a href="#home" class="file-item active" data-file="home.md">
+                                    <i class="fab fa-markdown file-icon md-color"></i>
+                                    <span>home.md</span>
+                                </a>
+                                <a href="#about" class="file-item" data-file="about.json">
+                                    <i class="fas fa-code file-icon json-color"></i>
+                                    <span>about.json</span>
+                                </a>
+                                <a href="#projects" class="file-item" data-file="projects.json">
+                                    <i class="fas fa-code file-icon json-color"></i>
+                                    <span>projects.json</span>
+                                </a>
+                                <a href="#contact" class="file-item" data-file="contact.yaml">
+                                    <i class="fas fa-file-signature file-icon yaml-color"></i>
+                                    <span>contact.yaml</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="folder-group">
+                            <div class="folder-title">
+                                <i class="fas fa-chevron-right folder-arrow"></i>
+                                <i class="fas fa-folder folder-icon-sub"></i>
+                                <span>assets</span>
+                            </div>
+                            <div class="folder-items" style="display: none;">
+                                <div class="file-item">
+                                    <i class="far fa-image file-icon"></i>
+                                    <span>avatar.png</span>
+                                </div>
+                                <div class="file-item">
+                                    <i class="fab fa-css3-alt file-icon css-color"></i>
+                                    <span>style.css</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Editor Workspace Pane -->
+        <main class="editor-area">
+            <!-- Sticky Tab Headers -->
+            <div class="editor-tabs" id="editorTabs">
+                <a href="#home" class="tab-item active" data-tab="home.md">
+                    <i class="fab fa-markdown md-color"></i>
+                    <span>home.md</span>
+                    <span class="tab-close">&times;</span>
+                </a>
+                <a href="#about" class="tab-item" data-tab="about.json">
+                    <i class="fas fa-code json-color"></i>
+                    <span>about.json</span>
+                    <span class="tab-close">&times;</span>
+                </a>
+                <a href="#projects" class="tab-item" data-tab="projects.json">
+                    <i class="fas fa-code json-color"></i>
+                    <span>projects.json</span>
+                    <span class="tab-close">&times;</span>
+                </a>
+                <a href="#contact" class="tab-item" data-tab="contact.yaml">
+                    <i class="fas fa-file-signature yaml-color"></i>
+                    <span>contact.yaml</span>
+                    <span class="tab-close">&times;</span>
+                </a>
+            </div>
+
+            <!-- Scrollable Editor Viewport -->
+            <div class="editor-viewport" id="editorViewport">
+                
+                <!-- Section 1: Home/Hero -->
+                <section id="home" class="editor-section reveal">
+                    <div class="file-breadcrumbs">
+                        <span>portfolio</span> &gt; <span>src</span> &gt; <span class="active">home.md</span>
+                    </div>
+
+                    <div class="section-content hero-layout">
+                        <!-- Hero Render Presentation -->
+                        <div class="hero-render-pane">
+                            <div class="hire-badge float-animation">
+                                <span class="badge-pulse"></span>
+                                <span data-i18n="badgeText">Developer Playground Active</span>
+                            </div>
+
+                            <p class="playground-tag" data-i18n="playgroundTag">// Active Workspace</p>
+                            <h1 class="hero-title animate-text-glow" data-i18n="heroTitle">Hello World!</h1>
+                            <p class="hero-subtitle">
+                                <span data-i18n="heroSubtitle1">I'm</span> <span class="name-glow">Mcd</span><span data-i18n="heroSubtitle2">, a creative</span> <span class="accent-text" data-i18n="heroSubtitle3">Full Stack Developer</span> <span data-i18n="heroSubtitleEnd">crafting digital products.</span>
+                            </p>
+                            
+                            <p class="hero-desc" data-i18n="heroDesc">
+                                Specializing in visually stunning web architectures, modular backends, and responsive design systems.
+                            </p>
+
+                            <div class="playground-actions">
+                                <a href="#projects" class="workspace-btn btn-filled ripple-btn" data-i18n="btnWork">View My Work</a>
+                                <a href="#contact" class="workspace-btn btn-ghost ripple-btn" data-i18n="btnContact">Initialize Contact</a>
+                            </div>
+
+                            <div class="social-panel">
+                                <span class="social-label" data-i18n="socialLabel">// Social Channels:</span>
+                                <div class="social-icons">
+                                    <a href="https://github.com" target="_blank" class="social-icon-btn ripple-btn" title="GitHub">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://discord.com" target="_blank" class="social-icon-btn ripple-btn" title="Discord">
+                                        <i class="fab fa-discord"></i>
+                                    </a>
+                                    <a href="https://twitter.com" target="_blank" class="social-icon-btn ripple-btn" title="Twitter">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Terminal Console Pane (OLED black) -->
+                        <div class="editor-code-pane glass-card hover-glow scan-effect">
+                            <div class="pane-header">
+                                <span class="file-name"><i class="fas fa-terminal text-green"></i> <span data-i18n="terminalFile">compiler_terminal.sh</span></span>
+                                <span class="badge online" id="compilerStatus" data-i18n="terminalReady">Ready</span>
+                            </div>
+                            <div class="terminal-container">
+                                <div class="terminal-output-block" id="terminalLogs">
+                                    <div class="log-row info"><span class="log-prompt">$</span> npm run build:workspace</div>
+                                    <div class="log-row comment" data-i18n="terminalComment">// Click "Run Compiler" below to test development flow...</div>
+                                </div>
+                                <div class="terminal-action-panel">
+                                    <button class="terminal-compile-btn" id="runCompilerBtn">
+                                        <i class="fas fa-play"></i> <span data-i18n="terminalBtn">Run Compiler</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 2: About -->
+                <section id="about" class="editor-section reveal">
+                    <div class="file-breadcrumbs">
+                        <span>portfolio</span> &gt; <span>src</span> &gt; <span class="active">about.json</span>
+                    </div>
+
+                    <div class="section-content about-layout">
+                        <!-- Left Side: Interactive Biography -->
+                        <div class="about-details">
+                            <h2 class="workspace-h2" data-i18n="aboutTitle">// About & Core Focus</h2>
+                            
+                            <div class="bio-intro-box glass-card hover-glow">
+                                <h3 data-i18n="aboutBoxTitle">Full Stack Web Architecture</h3>
+                                <p data-i18n="aboutBoxP1">I am a developer dedicated to translating clean, modern designs into solid codebases. I build frontend interfaces and backend databases that keep websites fast and secure.</p>
+                                <p data-i18n="aboutBoxP2">Focused on clean code guidelines, visual consistency, and building features that feel natural to interact with.</p>
+                            </div>
+
+                            <div class="tech-stack-container glass-card">
+                                <h4 data-i18n="techStackTitle">// Stack Configurations</h4>
+                                <div class="tech-tags-cloud">
+                                    <span class="tech-tag-badge" style="--delay: 1"><i class="fab fa-react font-react"></i> React</span>
+                                    <span class="tech-tag-badge" style="--delay: 2"><i class="fab fa-node-js font-node"></i> Node.js</span>
+                                    <span class="tech-tag-badge" style="--delay: 3"><i class="fas fa-database font-db"></i> MongoDB</span>
+                                    <span class="tech-tag-badge" style="--delay: 4"><i class="fab fa-js-square font-js"></i> JavaScript</span>
+                                    <span class="tech-tag-badge" style="--delay: 5"><i class="fas fa-cubes font-ts"></i> Next.js</span>
+                                    <span class="tech-tag-badge" style="--delay: 6"><i class="fas fa-server font-db"></i> PostgreSQL</span>
+                                    <span class="tech-tag-badge" style="--delay: 7"><i class="fab fa-docker font-docker"></i> Docker</span>
+                                    <span class="tech-tag-badge" style="--delay: 8"><i class="fab fa-git-alt font-git"></i> Git</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Side: Core Values Cards -->
+                        <div class="about-cards-pane">
+                            <div class="attributes-grid">
+                                <div class="attr-card glass-card hover-glow float-animation" style="animation-delay: 0.2s">
+                                    <div class="attr-icon"><i class="fas fa-code"></i></div>
+                                    <h4 data-i18n="attrClean">Clean Code</h4>
+                                    <p data-i18n="attrCleanDesc">Readability first. Standard-compliant structures and testing practices.</p>
+                                </div>
+                                <div class="attr-card glass-card hover-glow float-animation" style="animation-delay: 0.4s">
+                                    <div class="attr-icon"><i class="fas fa-cubes"></i></div>
+                                    <h4 data-i18n="attrScale">Scalability</h4>
+                                    <p data-i18n="attrScaleDesc">Modular component ecosystems built for future expansion.</p>
+                                </div>
+                                <div class="attr-card glass-card hover-glow float-animation" style="animation-delay: 0.6s">
+                                    <div class="attr-icon"><i class="fas fa-magic"></i></div>
+                                    <h4 data-i18n="attrUI">Interactive UI</h4>
+                                    <p data-i18n="attrUIDesc">Creating micro-animations that make digital spaces feel alive.</p>
+                                </div>
+                                <div class="attr-card glass-card hover-glow float-animation" style="animation-delay: 0.8s">
+                                    <div class="attr-icon"><i class="fas fa-globe-americas"></i></div>
+                                    <h4 data-i18n="attrGlobal">Global Client System</h4>
+                                    <p data-i18n="attrGlobalDesc">Serving clean digital solutions worldwide from Turkey.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 3: Projects -->
+                <section id="projects" class="editor-section reveal">
+                    <div class="file-breadcrumbs">
+                        <span>portfolio</span> &gt; <span>src</span> &gt; <span class="active">projects.json</span>
+                    </div>
+
+                    <div class="section-content projects-layout">
+                        <div class="projects-info">
+                            <h2 class="workspace-h2" data-i18n="projectsTitle">// Selected Repositories</h2>
+                            <p class="section-intro-text" data-i18n="projectsIntro">Hover cards to activate active glowing borders and detailed stats.</p>
+                        </div>
+
+                        <div class="workspace-projects-grid">
+                            <!-- Project Repository Card 1 -->
+                            <div class="repo-card glass-card hover-glow float-animation" style="animation-delay: 0.1s">
+                                <div class="repo-header">
+                                    <div class="repo-title-wrapper">
+                                        <i class="far fa-folder repo-folder-icon"></i>
+                                        <h3 class="repo-name" data-i18n="projAlpha">oirat-systems</h3>
+                                    </div>
+                                    <span class="repo-badge">Private</span>
+                                </div>
+                                <div class="repo-body">
+                                    <p data-i18n="projAlphaDesc">This modern web application, based on Next.js, allows Discord bots to be divided into nodes and used from a single panel..</p>
+                                    
+                                    <div class="tech-badges">
+                                        <span class="tech-badge">React</span>
+                                        <span class="tech-badge">NodeJS</span>
+                                        <span class="tech-badge">MongoDB</span>
+                                    </div>
+                                </div>
+                                <div class="repo-footer">
+                                    <div class="repo-stats">
+                                        <span><span class="lang-color js-color"></span> JS</span>
+                                        <span><i class="fab fa-discord"></i> 1200 Member</span>
+                                    </div>
+                                    <span class="build-status passing"><i class="fas fa-check-circle"></i> Geliştiriliyor</span>
+                                </div>
+                            </div>
+
+                           
+                            <div class="repo-card glass-card hover-glow float-animation" style="animation-delay: 0.3s">
+                                <div class="repo-header">
+                                    <div class="repo-title-wrapper">
+                                        <i class="far fa-folder repo-folder-icon"></i>
+                                        <h3 class="repo-name" data-i18n="projEcom">NOT FOUND</h3>
+                                    </div>
+                                    <span class="repo-badge">NOT FOUND</span>
+                                </div>
+                                <div class="repo-body">
+                                    <p data-i18n="projEcomDesc">-.</p>
+                                    
+                                    <div class="tech-badges">
+                                        <span class="tech-badge">-</span>
+                                        <span class="tech-badge">-</span>
+                                        <span class="tech-badge">-</span>
+                                    </div>
+                                </div>
+                                <div class="repo-footer">
+                                    <div class="repo-stats">
+                                        <span><span class="lang-color ts-color"></span> -</span>
+                                        <span><i class="far fa-star"></i> -</span>
+                                    </div>
+                                    <span class="build-status passing"><i class="fas fa-check-circle"></i> -</span>
+                                </div>
+                            </div>
+
+                          
+                            <div class="repo-card glass-card hover-glow float-animation" style="animation-delay: 0.5s">
+                                <div class="repo-header">
+                                    <div class="repo-title-wrapper">
+                                        <i class="far fa-folder repo-folder-icon"></i>
+                                        <h3 class="repo-name" data-i18n="projGlass">NOT FOUND</h3>
+                                    </div>
+                                    <span class="repo-badge">NOT FOUND</span>
+                                </div>
+                                <div class="repo-body">
+                                    <p data-i18n="projGlassDesc">-.</p>
+                                    
+                                    <div class="tech-badges">
+                                        <span class="tech-badge">-</span>
+                                        <span class="tech-badge">-</span>
+                                        <span class="tech-badge">-</span>
+                                    </div>
+                                </div>
+                                <div class="repo-footer">
+                                    <div class="repo-stats">
+                                        <span><span class="lang-color ts-color"></span> -</span>
+                                        <span><i class="far fa-star"></i> -</span>
+                                    </div>
+                                    <span class="build-status passing"><i class="fas fa-check-circle"></i> -</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+             
+                <!-- Section 4: Contact -->
+                <section id="contact" class="editor-section reveal">
+                    <div class="file-breadcrumbs">
+                        <span>portfolio</span> &gt; <span>src</span> &gt; <span class="active">contact.yaml</span>
+                    </div>
+
+                    <div class="section-content contact-layout">
+                        <!-- Clean Dev-themed contact form -->
+                        <div class="contact-form-pane glass-card hover-glow">
+                            <div class="pane-header">
+                                <span class="file-name"><i class="fas fa-file-signature yaml-color"></i> <span data-i18n="contactFormFile">contact.config.js</span></span>
+                                <span class="badge edit-badge" data-i18n="contactFormBadge">// Input active</span>
+                            </div>
+                            <form class="yaml-styled-form">
+                                <div class="form-instructions">
+                                    <span class="yaml-comment" data-i18n="contactFormComment">// Fill the configuration details below to transmit a message.</span>
+                                </div>
+                                
+                                <div class="code-form-row">
+                                    <span class="code-js-keyword">const</span> <span class="code-js-var">senderName</span> = <span class="code-js-str">"</span><input type="text" class="yaml-input" data-i18n-ph="contactPlName" placeholder="Your Name" required id="senderName"><span class="code-js-str">"</span>;
+                                </div>
+                                <div class="code-form-row">
+                                    <span class="code-js-keyword">const</span> <span class="code-js-var">senderEmail</span> = <span class="code-js-str">"</span><input type="email" class="yaml-input" data-i18n-ph="contactPlEmail" placeholder="Your Email" required id="senderEmail"><span class="code-js-str">"</span>;
+                                </div>
+                                <div class="code-form-row">
+                                    <span class="code-js-keyword">const</span> <span class="code-js-var">subject</span> = <span class="code-js-str">"</span><input type="text" class="yaml-input" data-i18n-ph="contactPlSubject" placeholder="Subject" required id="msgSubject"><span class="code-js-str">"</span>;
+                                </div>
+                                
+                                <div class="code-form-row block-row">
+                                    <span class="code-js-keyword">const</span> <span class="code-js-var">message</span> = <span class="code-js-str">`</span>
+                                    <textarea class="yaml-textarea" data-i18n-ph="contactPlMsg" placeholder="Type message body here..." rows="4" required id="senderMsg"></textarea>
+                                    <span class="code-js-str">`</span>;
+                                </div>
+                                
+                                <div class="code-form-row btn-row">
+                                    <button type="submit" class="yaml-submit-btn ripple-btn">
+                                        <i class="fas fa-paper-plane"></i> <span data-i18n="contactSubmit">sendMessage({ senderName, message })</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Right Panel info -->
+                        <div class="contact-info-panel">
+                            <h2 class="workspace-h2" data-i18n="contactTitle">// Connection Ports</h2>
+                            <p class="section-intro-text" data-i18n="contactIntro">Submit the input form to test transmission routing. Receptive to freelance contracts, architecture projects, and community inquiries.</p>
+                            
+                            <div class="connection-status glass-card hover-glow">
+                                <div class="status-row">
+                                    <span class="status-label" data-i18n="contactHost">Host Route:</span>
+                                    <span class="status-value monospace">mcd-dev.network</span>
+                                </div>
+                                <div class="status-row">
+                                    <span class="status-label" data-i18n="contactTls">Security TLS:</span>
+                                    <span class="status-value monospace">v1.3 Encrypted</span>
+                                </div>
+                                <div class="status-row">
+                                    <span class="status-label" data-i18n="contactLatency">Latency:</span>
+                                    <span class="status-value monospace text-green"><i class="fas fa-circle badge-dot-pulse"></i> 14ms (online)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Status Bar (IDE footer indicator) -->
+    <footer class="workspace-status-bar">
+        <div class="status-left">
+            <span class="status-item bg-accent"><i class="fas fa-code-branch"></i> main</span>
+            <span class="status-item"><i class="fas fa-sync-alt spin-icon"></i> <span data-i18n="statusSync">sync: active</span></span>
+            <span class="status-item text-green"><i class="fas fa-check-circle"></i> <span data-i18n="statusErrors">0 errors, 0 warnings</span></span>
+        </div>
+        <div class="status-right">
+            <span class="status-item">Ln 142, Col 8</span>
+            <span class="status-item">UTF-8</span>
+            <span class="status-item"><i class="fas fa-laptop-code"></i> <span data-i18n="statusPortal">Responsive Portal</span></span>
+        </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
